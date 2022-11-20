@@ -14,6 +14,7 @@ Additionally, this will help us gain a better understanding as to why admissions
 
 ## Data Exploration
 
+### Observing Data
 In this dataset, we have 1000 total observations. Running the `info()` command, we can see that our data has 1000 rows of non-null data for each column, so in our preprocessing, there is no need to drop any null data. We also did not drop any columns, as we wanted to use each factor to test whether they had any influence on the test scores.
 
 The column names of our data are: 
@@ -39,11 +40,13 @@ The column names of our data are:
 - Reading Score: the student’s score achieved on the reading section of the standardized test
 - Writing Score: the student’s score achieved on the writing section of the standardized test
 
+### Plots
 Plotting all of our data in a pairplot, and calculating the correlation for all the attributes, some of the initial trends we saw were:
 - There is a high linear correlation between the test scores of the three different sections: math, reading, and writing
 - The scatter plots of test scores with the rest of the attributes show a very level of clustering, but looking at the correlation coefficients, there appears to be no correlation between the attributes
 - There was no correlation between test prep, gender, race/ethnicity, parental level of education, lunch
 
+### Preprocessing
 We preprocessed the data by changing categorical data to numerical or boolean values. For instance, in the case of gender - male was set to true and female to false. This was also done for the other attributes that contained qualitative data, such as lunch, test preparation courses, race/ethnicity, and parental level of education so that we could represent them as qualitative data. For race/ethnicity, we mapped the values by alphabetical order of groups, while for the parental level of education, we set the value from the lowest to the highest degree.
 
 Transforms completed:
