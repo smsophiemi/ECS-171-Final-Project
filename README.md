@@ -6,7 +6,7 @@ Pengcheng Cao, Zahira Ghazali, Denise Kwong, Sophie Mi, Lingfeng Pan, Zihan Wang
 ## Abstract
 The dataset we are using records the standardized test scores of high school students in the United States in various subjects, and some personal identification details. (https://www.kaggle.com/datasets/spscientist/students-performance-in-exams)
 
-NOTE: the data was created by Royce Kimmons, who created it as a fictional data set. So all the observations are generated and do not represent real people.
+# NOTE: the data was created by Royce Kimmons, who created it as a fictional data set. So all the observations are generated and do not represent real people.
 
 In this project, we would like to use this data to understand the influence of the parents' background, test preparation, and other factors on a student's performance on high school standardized tests in order to create a model to predict how well students will do in the future. 
 
@@ -78,6 +78,8 @@ Transforms completed:
 After preprocessing our data, we concluded that any linear, polynomial and logistic regression model will not be a good fit, thus, when creating our model, we plan to proceed with trying a classification model, as well as both SVM and neural net to best represent our data.
 
 ### Target
+
+
 
 ### First Model
 
