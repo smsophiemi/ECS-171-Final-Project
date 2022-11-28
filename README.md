@@ -78,20 +78,41 @@ Transforms completed:
 After preprocessing our data, we concluded that any linear, polynomial and logistic regression model will not be a good fit, thus, when creating our model, we plan to proceed with trying a classification model, as well as both SVM and neural net to best represent our data.
 
 ### Target
-
-
+In standardized testing, the final score is reported as the average of the individual sections, thus, we created another column called ```avg score``` that averaged the math, reading, and writing section scores of each student. We then used this average score to define our target, ```passed```. We define pass to be if the student achieves a score higher than 75, which is approximately a letter grade of C.
 
 ### First Model
+We chose to use a Naive Bayes Classifier as our first model. Since our dataset contained both categorical and numerical attributes, we fit a Categorical Naive Bayes Classifier on the categorical attributes only. We then also fit a Gaussian Naive Bayes Classifier on the numerical attributes, but since the numerical attributes are the individual section cores that we directly used to obtain our target attribute, we expected this to be highly accurate - thus, we do our comparison of training and testing error primarily using the Categorical Naive Bayes Classifier.
 
 ### Comparing Training vs Testing Error
+We printed classification reports for both the training and testing set to compare the error for each. From the reports, we concluded that the overall precision and recall for determining whether the individual passed or failed was relatively the same for the testing and training data, with the results for the training data being slightly higher. 
 
-Precision = TP / (TP + FP)
+Using the equations below, we determined the fit of our model by calculating the mispredictions for the training and testing data of the Categorical Model:
 
-Recall = TP / (TP + FN)
+- Precision = $\frac{TP}{TP + FP}$
+- Recall = $\frac{TP}{TP + FN}$
+- Accuracy = $\frac{TP + TN}{TP + FP + TN + FN}$
+- Mispredictions = $\frac{FP + FN}{TP + FP + TN + FN}$
 
-Accuracy = TP + TN / All
+Running our model, we get the following values:
 
-Mispredictions = FP + FN / All
+Testing Set:
+- total positive = 31
+- total negative = 200 - 31 = 169
 
-### Fitting Graph
+- true positive = 16
+- false positive = 31 - 16 = 15
 
+- true negative = 120
+- false negative = 169 - 120 = 49
+
+Training Set
+- total positive = 113
+- total negative = 800 - 113 = 687
+
+- true positive = 65
+- false positive = 113 - 65 = 48
+
+- true negative = 493
+- false negative = 687 - 493 = 194
+
+Thus, the misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. Since the predictive error is similar for both training and testing, our model is likely underfitting or a good fit. 
