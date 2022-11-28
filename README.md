@@ -115,4 +115,4 @@ Training Set
 - true negative = 493
 - false negative = 687 - 493 = 194
 
-Thus, the misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. Since the predictive error is similar for both training and testing, our model is likely underfitting or is close to a good fit. 
+Thus, the misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. Since the predictive error is similar for both training and testing, according to the fitting graph, our model is likely underfitting or is close to a good fit, with higher predictive error and simple model complexity placing it to the left of the ideal range for model complexity. 
