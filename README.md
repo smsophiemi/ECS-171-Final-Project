@@ -81,7 +81,7 @@ After preprocessing our data, we concluded that any linear, polynomial and logis
 In standardized testing, the final score is reported as the average of the individual sections, thus, we created another column called ```avg score``` that averaged the math, reading, and writing section scores of each student. We then used this average score to define our target, ```passed```. We define pass to be if the student achieves a score higher than 75, which is approximately a letter grade of C.
 
 ### First Model
-We chose to use a Naive Bayes Classifier as our first model. Since our dataset contained both categorical and numerical attributes, we fit a Categorical Naive Bayes Classifier on the categorical attributes only. We then also fit a Gaussian Naive Bayes Classifier on the numerical attributes, but since the numerical attributes are the individual section cores that we directly used to obtain our target attribute, we expected this to be highly accurate - thus, we do our comparison of training and testing error primarily using the Categorical Naive Bayes Classifier.
+We chose to use a Naive Bayes Classifier as our first model. Since our dataset contained both categorical and numerical attributes, we fit a Categorical Naive Bayes Classifier on the categorical attributes only. We then also fit a Gaussian Naive Bayes Classifier on the numerical attributes, but since the numerical attributes are the individual section scores that we directly used to obtain our target attribute, we expected this to be highly accurate - thus, we do our comparison of training and testing error primarily using the Categorical Naive Bayes Classifier.
 
 ### Comparing Training vs Testing Error
 We printed classification reports for both the training and testing set to compare the error for each. From the reports, we concluded that the overall precision and recall for determining whether the individual passed or failed was relatively the same for the testing and training data, with the results for the training data being slightly higher. 
@@ -115,4 +115,4 @@ Training Set
 - true negative = 493
 - false negative = 687 - 493 = 194
 
-Thus, the misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. Since the predictive error is similar for both training and testing, our model is likely underfitting or a good fit. 
+Thus, the misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. Since the predictive error is similar for both training and testing, our model is likely underfitting or is close to a good fit. 
