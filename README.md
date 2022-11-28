@@ -83,5 +83,13 @@ After preprocessing our data, we concluded that any linear, polynomial and logis
 
 ### Comparing Training vs Testing Error
 
+Precision = TP / (TP + FP)
+
+Recall = TP / (TP + FN)
+
+Accuracy = TP + TN / All
+
+Mispredictions = FP + FN / All
+
 ### Fitting Graph
 
