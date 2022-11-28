@@ -77,3 +77,11 @@ Transforms completed:
 
 After preprocessing our data, we concluded that any linear, polynomial and logistic regression model will not be a good fit, thus, when creating our model, we plan to proceed with trying a classification model, as well as both SVM and neural net to best represent our data.
 
+### Target
+
+### First Model
+
+### Comparing Training vs Testing Error
+
+### Fitting Graph
+
