@@ -3,6 +3,8 @@
 ## Group Members
 Pengcheng Cao, Zahira Ghazali, Denise Kwong, Sophie Mi, Lingfeng Pan, Zihan Wang
 
+# Introduction
+
 ## Abstract
 The dataset we are using records the standardized test scores of high school students in the United States in various subjects, and some personal identification details. (https://www.kaggle.com/datasets/spscientist/students-performance-in-exams)
 
@@ -11,6 +13,19 @@ The dataset we are using records the standardized test scores of high school stu
 In this project, we would like to use this data to understand the influence of the parents' background, test preparation, and other factors on a student's performance on high school standardized tests in order to create a model to predict how well students will do in the future. 
 
 Additionally, this will help us gain a better understanding as to why admissions officers argued standardized testing isn't a fair measure of admissions.
+
+## Summary
+[todo]
+
+# Figures
+- Figures (of your choosing to help with the narration of your story) with legends (similar to a scientific paper) For reference you search machine learning and your model in google scholar for reference examples.
+[todo]
+
+# Methods
+- Methods section (this section will include the exploration results, preprocessing steps, models chosen in the order they were executed. Parameters chosen. Please make sub-sections for every step. i.e Data Exploration, Preprocessing, Model 1, Model 2, (note models can be the same i.e. CNN but different versions of it if they are distinct enough). You can put links here to notebooks and/or code blocks using three ` in markup for displaying code. so it would look like this: ``` MY CODE BLOCK ```
+Note: A methods section does not include any why. the reason why will be in the discussion section. This is just a summary of your methods
+Results section. This will include the results from the methods listed above (C). You will have figures here about your results as well.
+No exploration of results is done here. This is mainly just a summary of your results. The sub-sections will be the same as the sections in your methods section.
 
 ## Data Exploration
 
@@ -39,6 +54,7 @@ The column names of our data are:
 - Math Score: the student's score achieved on the math section of the standardized test
 - Reading Score: the student’s score achieved on the reading section of the standardized test
 - Writing Score: the student’s score achieved on the writing section of the standardized test
+
 
 ### Plots
 Plotting all of our data in a pairplot, and calculating the correlation for all the attributes, some of the initial trends we saw were:
@@ -83,7 +99,13 @@ In standardized testing, the final score is reported as the average of the indiv
 ### First Model
 We chose to use a Naive Bayes Classifier as our first model. Since our dataset contained both categorical and numerical attributes, we fit a Categorical Naive Bayes Classifier on the categorical attributes only. We then also fit a Gaussian Naive Bayes Classifier on the numerical attributes, but since the numerical attributes are the individual section cores that we directly used to obtain our target attribute, we expected this to be highly accurate - thus, we do our comparison of training and testing error primarily using the Categorical Naive Bayes Classifier.
 
-### Comparing Training vs Testing Error
+### Second Model
+
+# Discussion
+- Discussion section: This is where you will discuss the why, and your interpretation and your though process from beginning to end. This will mimic the sections you have created in your methods section as well as new sections you feel you need to create. You can also discuss how believable your results are at each step. You can discuss any short comings. It's ok to criticize as this shows your intellectual merit, as to how you are thinking about things scientifically and how you are able to correctly scrutinize things and find short comings. In science we never really find the perfect solution, especially since we know something will probably come up int he future (i.e. donkeys) and mess everything up. If you do it's probably a unicorn or the data and model you chose are just perfect for each other!
+
+
+### Comparing Training vs Testing Error for First Model
 We printed classification reports for both the training and testing set to compare the error for each. From the reports, we concluded that the overall precision and recall for determining whether the individual passed or failed was relatively the same for the testing and training data, with the results for the training data being slightly higher. 
 
 Using the equations below, we determined the fit of our model by calculating the mispredictions for the training and testing data of the Categorical Model:
@@ -116,3 +138,9 @@ Training Set
 - false negative = 687 - 493 = 194
 
 Thus, the misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. Since the predictive error is similar for both training and testing, our model is likely underfitting or a good fit. 
+
+
+# Conclusion
+- Conclusion section: This is where you do a mind dump on your opinions and possible future directions. Basically what you wish you could have done differently. Here you close with final thoughts
+Collaboration section: This is a statement of contribution by each member. This will be taken into consideration when making the final grade for each member in the group. Did you work as a team? was there a team leader? project manager? coding? writer? etc.
+
