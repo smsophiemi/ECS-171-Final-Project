@@ -6,16 +6,13 @@ Pengcheng Cao, Zahira Ghazali, Denise Kwong, Sophie Mi, Lingfeng Pan, Zihan Wang
 # Introduction
 
 ## Abstract
-The dataset we are using records the standardized test scores of high school students in the United States in various subjects, and some personal identification details. (https://www.kaggle.com/datasets/spscientist/students-performance-in-exams)
+The dataset we are using records the standardized test scores of high school students in the United States in various subjects and some personal identification details of each student. (https://www.kaggle.com/datasets/spscientist/students-performance-in-exams)
 
 # NOTE: the data was created by Royce Kimmons, who created it as a fictional data set. So all the observations are generated and do not represent real people.
 
-In this project, we would like to use this data to understand the influence of the parents' background, test preparation, and other factors on a student's performance on high school standardized tests in order to create a model to predict how well students will do in the future. 
+In this project, we would like to use this data to understand the influence of the parents' background, test preparation, and other factors on a student's performance on high school standardized tests in order to create a model to predict how well students will do in the future.
 
 Additionally, this will help us gain a better understanding as to why admissions officers argued standardized testing isn't a fair measure of admissions.
-
-## Summary
-[todo]
 
 # Figures
 - Figures (of your choosing to help with the narration of your story) with legends (similar to a scientific paper) For reference you search machine learning and your model in google scholar for reference examples.
@@ -33,6 +30,7 @@ Results section. This will include the results from the methods listed above (C)
 No exploration of results is done here. This is mainly just a summary of your results. The sub-sections will be the same as the sections in your methods section.
 
 ## Data Exploration
+![link to figures](#figures)
 
 ### Observing Data
 In this dataset, we have 1000 total observations. Running the `info()` command, we can see that our data has 1000 rows of non-null data for each column, so in our preprocessing, there is no need to drop any null data. We also did not drop any columns, as we wanted to use each factor to test whether they had any influence on the test scores.
