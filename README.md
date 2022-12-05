@@ -24,6 +24,8 @@ Additionally, this will help us gain a better understanding as to why admissions
 
 ![heatmap](heatmap.png)
 
+![comparing model complexity](model_complexity_graph.png)
+
 # Methods
 - Methods section (this section will include the exploration results, preprocessing steps, models chosen in the order they were executed. Parameters chosen. Please make sub-sections for every step. i.e Data Exploration, Preprocessing, Model 1, Model 2, (note models can be the same i.e. CNN but different versions of it if they are distinct enough). You can put links here to notebooks and/or code blocks using three ` in markup for displaying code. so it would look like this: ``` MY CODE BLOCK ```
 Note: A methods section does not include any why. the reason why will be in the discussion section. This is just a summary of your methods
@@ -145,5 +147,7 @@ Thus, the misprediction for our training set was 0.3025 and the misprediction fo
 
 # Conclusion
 - Conclusion section: This is where you do a mind dump on your opinions and possible future directions. Basically what you wish you could have done differently. Here you close with final thoughts
-Collaboration section: This is a statement of contribution by each member. This will be taken into consideration when making the final grade for each member in the group. Did you work as a team? was there a team leader? project manager? coding? writer? etc.
+
+# Collaboration section: 
+- This is a statement of contribution by each member. This will be taken into consideration when making the final grade for each member in the group. Did you work as a team? was there a team leader? project manager? coding? writer? etc.
 
