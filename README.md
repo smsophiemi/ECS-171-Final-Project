@@ -150,3 +150,4 @@ Thus, the misprediction for our training set was 0.3025 and the misprediction fo
 # Collaboration section: 
 - This is a statement of contribution by each member. This will be taken into consideration when making the final grade for each member in the group. Did you work as a team? was there a team leader? project manager? coding? writer? etc.
 
+[Cell](Project.ipynb:#af28a8e6)
