@@ -21,7 +21,7 @@ Additionally, this will help us gain a better understanding as to why admissions
 
 ![heatmap](heatmap.png)
 
-[comparing model complexity](model_complexity_graph.png)
+![comparing model complexity](model_complexity_graph.png)
 
 # Methods
 - Methods section (this section will include the exploration results, preprocessing steps, models chosen in the order they were executed. Parameters chosen. Please make sub-sections for every step. i.e Data Exploration, Preprocessing, Model 1, Model 2, (note models can be the same i.e. CNN but different versions of it if they are distinct enough). You can put links here to notebooks and/or code blocks using three ` in markup for displaying code. so it would look like this: ``` MY CODE BLOCK ```
@@ -30,7 +30,7 @@ Results section. This will include the results from the methods listed above (C)
 No exploration of results is done here. This is mainly just a summary of your results. The sub-sections will be the same as the sections in your methods section.
 
 ## Data Exploration
-![link to figures](#figures)
+[link to figures](#figures)
 
 ### Observing Data
 In this dataset, we have 1000 total observations. Running the `info()` command, we can see that our data has 1000 rows of non-null data for each column, so in our preprocessing, there is no need to drop any null data. We also did not drop any columns, as we wanted to use each factor to test whether they had any influence on the test scores.
