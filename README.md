@@ -20,22 +20,14 @@ Additionally, this will help us gain a better understanding as to why admissions
 - Recall = $\frac{TP}{TP + FN}$
 - Accuracy = $\frac{TP + TN}{TP + FP + TN + FN}$
 - Mispredictions = $\frac{FP + FN}{TP + FP + TN + FN}$
-
 ## ```pairplot``` with all dataset attributes
 ![pairplot](pairplot.png)
-
 ## ```heatmap``` displaying the correlation coefficients of all dataset attributes
 ![heatmap](heatmap.png)
-
 ## graph showing how to compare training and testing error to determine overfitting/underfitting
 ![comparing model complexity](model_complexity_graph.png)
 
 # Methods
-- Methods section (this section will include the exploration results, preprocessing steps, models chosen in the order they were executed. Parameters chosen. Please make sub-sections for every step. i.e Data Exploration, Preprocessing, Model 1, Model 2, (note models can be the same i.e. CNN but different versions of it if they are distinct enough). You can put links here to notebooks and/or code blocks using three ` in markup for displaying code. so it would look like this: ``` MY CODE BLOCK ```
-Note: A methods section does not include any why. the reason why will be in the discussion section. This is just a summary of your methods
-Results section. This will include the results from the methods listed above (C). You will have figures here about your results as well.
-No exploration of results is done here. This is mainly just a summary of your results. The sub-sections will be the same as the sections in your methods section.
-
 ## Data Exploration
 ### Observing Data
 In this dataset, we have 1000 total observations. Running the `info()` command, we can see that our data has 1000 rows of non-null data for each column.
