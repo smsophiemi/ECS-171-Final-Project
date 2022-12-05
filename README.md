@@ -8,27 +8,26 @@ Pengcheng Cao, Zahira Ghazali, Denise Kwong, Sophie Mi, Lingfeng Pan, Zihan Wang
 ## Abstract
 The dataset we are using records the standardized test scores of high school students in the United States in various subjects and some personal identification details of each student. (https://www.kaggle.com/datasets/spscientist/students-performance-in-exams)
 
-# NOTE: the data was created by Royce Kimmons, who created it as a fictional data set. So all the observations are generated and do not represent real people.
+NOTE: the data was created by Royce Kimmons, who created it as a fictional data set. So all the observations are generated and do not represent real people.
 
 In this project, we would like to use this data to understand the influence of the parents' background, test preparation, and other factors on a student's performance on high school standardized tests in order to create a model to predict how well students will do in the future.
 
 Additionally, this will help us gain a better understanding as to why admissions officers argued standardized testing isn't a fair measure of admissions.
 
 # Figures
-- Figures (of your choosing to help with the narration of your story) with legends (similar to a scientific paper) For reference you search machine learning and your model in google scholar for reference examples.
-
-Using the equations below, we determined the fit of our model by calculating the mispredictions
-
+## Equations used for comparing error
 - Precision = $\frac{TP}{TP + FP}$
 - Recall = $\frac{TP}{TP + FN}$
 - Accuracy = $\frac{TP + TN}{TP + FP + TN + FN}$
 - Mispredictions = $\frac{FP + FN}{TP + FP + TN + FN}$
 
-[todo]
+## ```pairplot``` with all dataset attributes
 ![pairplot](pairplot.png)
 
+## ```heatmap``` displaying the correlation coefficients of all dataset attributes
 ![heatmap](heatmap.png)
 
+## graph showing how to compare training and testing error to determine overfitting/underfitting
 ![comparing model complexity](model_complexity_graph.png)
 
 # Methods
@@ -38,9 +37,6 @@ Results section. This will include the results from the methods listed above (C)
 No exploration of results is done here. This is mainly just a summary of your results. The sub-sections will be the same as the sections in your methods section.
 
 ## Data Exploration
-[link to figures](#figures)
-[link to notebook](Project.ipynb)
-
 ### Observing Data
 In this dataset, we have 1000 total observations. Running the `info()` command, we can see that our data has 1000 rows of non-null data for each column.
 
@@ -55,7 +51,7 @@ The column names of our data are:
 - Writing Score: the student’s score achieved on the writing section of the standardized test
 
 ### Plots
-We then used ```seaborn``` display all of the attributes in a pairplot, and calculated their correlation coefficients in a heatmap.
+We then used ```seaborn``` display all of the attributes in a [pairplot](#pairplot-with-all-dataset-attributes), and calculated their correlation coefficients in a [heatmap](#heatmap-displaying-the-correlation-coefficients-of-all-dataset-attributes).
 
 
 ## Preprocessing
@@ -104,7 +100,7 @@ We discovered that our dataset does not have any null data, so in our preprocess
 
 Since we wanted to see the effect of changing each of the categorical attributes on the scores, we also did not drop any columns in preprocessing.
 
-Some of the initial trends we saw from the pairplot and heatmap were:
+Some of the initial trends we saw from the [pairplot](#pairplot-with-all-dataset-attributes) and [heatmap](#heatmap-displaying-the-correlation-coefficients-of-all-dataset-attributes) were:
 - There is a high linear correlation between the test scores of the three different sections: math, reading, and writing
 - The scatter plots of test scores with the rest of the attributes show a very high level of clustering, but looking at the correlation coefficients, there appears to be no correlation between the attributes
 - There was no correlation between test prep, gender, race/ethnicity, parental level of education, lunch
@@ -122,7 +118,7 @@ We chose to use a Naive Bayes Classifier as our first model. Since our dataset c
 ### Comparing Training vs Testing Error for First Model
 We printed classification reports for both the training and testing sets to compare the error for each. From the reports, we concluded that the overall precision and recall for determining whether the individual passed or failed was relatively the same for the testing and training data, with the results for the training data being slightly higher.
 
-Running our model [link to eqn], we get the following values:
+Running our model, we get the following values:
 
 Testing Set:
 - total positive = 31
@@ -144,7 +140,7 @@ Training Set
 - true negative = 493
 - false negative = 687 - 493 = 194
 
-Thus, the misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. Since the predictive error is similar for both training and testing, according to the fitting graph, our model is likely underfitting or is close to a good fit, with higher predictive error and simple model complexity placing it to the left of the ideal range for model complexity.
+Then, using the [equations](#equations-used-for-comparing-error) above, the misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. Since the predictive error is similar for both training and testing, according to the fitting graph, our model is likely underfitting or is close to a good fit, with higher predictive error and simple model complexity placing it to the [left of the ideal range for model complexity](#graph-showing-how-to-compare-training-and-testing-error-to-determine-overfittingunderfitting).
 
 [link to figure]
 
@@ -157,7 +153,7 @@ After testing we find the 4 layers separately with ```relu```, ```tanh```, ```li
 We generated the classification report for training and testing set to compare the error for each.
 By analyzing the report, we noticed that for the Neural Network we have a slightly higher accuracy 0.73 than the first model, and we concluded that the overall precision and recall for determining whether the individual passed or failed was relatively the same for the testing and training data, with the results for the training data being slightly higher.
 
-Running our model [link to eqn], we get the following values:
+Running our model, we get the following values:
 
 Testing Set:
 - total positive = 15
@@ -179,8 +175,7 @@ Training Set
 - true negative = 488
 - false negative = 699 - 488 = 211
 
-Thus, the misprediction for our training set was 0.3175 and the misprediction for our testing set was 0.27. Since the predictive error is similar for both training and testing, according to the fitting graph, our model is likely underfitting or is close to a good fit, with higher predictive error and simple model complexity placing it to the left of the ideal range for model complexity.
-[link to figure]
+Then, using the [equations](#equations-used-for-comparing-error) above, the misprediction for our training set was 0.3175 and the misprediction for our testing set was 0.27. Since the predictive error is similar for both training and testing, according to the fitting graph, our model is underfitting the data and is on the [left of the ideal range for model complexity](#graph-showing-how-to-compare-training-and-testing-error-to-determine-overfittingunderfitting).
 
 # Conclusion
 ## Summary of Results
