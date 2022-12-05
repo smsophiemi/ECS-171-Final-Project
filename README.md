@@ -31,7 +31,7 @@ No exploration of results is done here. This is mainly just a summary of your re
 
 ## Data Exploration
 [link to figures](#figures)
-[link to notebook](Project.ipynb)
+[link to notebook](Project.ipynb:#Data-Exploration)
 
 ### Observing Data
 In this dataset, we have 1000 total observations. Running the `info()` command, we can see that our data has 1000 rows of non-null data for each column, so in our preprocessing, there is no need to drop any null data. We also did not drop any columns, as we wanted to use each factor to test whether they had any influence on the test scores.
