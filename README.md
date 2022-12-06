@@ -15,7 +15,7 @@ In this project, we would like to use this data to understand the influence of t
 Additionally, this will help us gain a better understanding as to why admissions officers argued standardized testing isn't a fair measure of admissions.
 
 ## Table of Contents
-- Data Exploration and Preprocessing: [Project.ipynb](Project.ipynb)
+- Data Exploration and Preprocessing: [Project](Project.ipynb)
 - First Model - Naive Bayes Classifier: [First Model](Model1.ipynb)
 - Second Model - Neural Net: [Second Model](Model2.ipynb)
 
