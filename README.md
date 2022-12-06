@@ -182,6 +182,10 @@ After testing we find the 4 layers separately with ```relu```, ```tanh```, ```li
 ### Comparing Training vs Testing Error for Second Model
 The predictive error of the training set is equal to the testing, with a training set misprediction of 0.3175 and a testing set misprediction of 0.315. So, according to the fitting graph, our model is underfitting the data and is on the [far left of the ideal range for model complexity](#graph-showing-how-to-compare-training-and-testing-error-to-determine-overfittingunderfitting).
 
+## Results
+--- why we picked the first model over teh other
+[graph]
+
 # Conclusion
 ## Summary of Results
 We created two models to try and predict whether the student "passed" or failed the standardized test. This metric was created by taking the average of all three scores used and seeing if it was over 75% (our passing value). If it was, the student "passed", else the student failed. 
