@@ -180,11 +180,12 @@ To improve on our first model, we introduce Keras to define a Neural Network. Si
 After testing we find the 4 layers separately with ```relu```, ```tanh```, ```linear``` and ```sigmoid``` as activation is expected to have highest accuracy.
 
 ### Comparing Training vs Testing Error for Second Model
-The predictive error of the training set is equal to the testing, with a training set misprediction of 0.3175 and a testing set misprediction of 0.315. So, according to the fitting graph, our model is underfitting the data and is on the [far left of the ideal range for model complexity](#graph-showing-how-to-compare-training-and-testing-error-to-determine-overfittingunderfitting).
+The predictive error of the training set is larger than the testing, with a training set misprediction of 0.3175 and a testing set misprediction of 0.315. So, according to the fitting graph, our model is underfitting the data and is on the [far left of the ideal range for model complexity](#graph-showing-how-to-compare-training-and-testing-error-to-determine-overfittingunderfitting).
 
 ## Results
---- why we picked the first model over teh other
-[graph]
+![graph with the training vs validation set results](training_validation.png)
+
+From the graph showing training loss and validation loss versus the epochs, one can see that based on this graph the second model is underfitting as the validation loss is much higher than that of the training loss. Based on this and also the fact that the training accuracy was lower than that of the test accuracy, the second model is underfit.
 
 # Conclusion
 ## Summary of Results
