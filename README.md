@@ -142,6 +142,9 @@ Training Set
 
 The misprediction for our training set was 0.3175 and the misprediction for our testing set was 0.315.
 
+## Final Model
+The final model we picked was our First Model.
+
 # Discussion
 ## Data Exploration
 We discovered that our dataset does not have any null data, so in our preprocessing, there is no need to drop any null data. 
