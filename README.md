@@ -83,10 +83,66 @@ In standardized testing, the final score is reported as the average of the indiv
 The first model we used was a Naive Bayes Classifier. We first split the data into two parts, the categorical attributes, and the numerical attributes (the test scores). We then scaled the numerical data using `MinMaxScaler()` and split up both parts separately into our training and testing sets with a ratio of 80:20, and average score as the y. We fit a Categorical Naive Bayes to the categorical test data and logged the accuracy, then a Gaussian Naive Bayes for the numerical test data. We then compared the testing and training errors using classification reports and calculations to determine the effectiveness of the models.
 
 ## Second Model
-The second model we employed was a Neural Net using Keras. First, we split the data into the training and testing sets with a ratio of 80:20. We then used `Sequential()` to initialize the NN. The overall input dimension was 5 and we added 4 layers: one with 16 units and a `relu` activation function, another with 8 units and a `tanh` function, another with 6 units and a `linear` function, and the last sigmoid layer with 1 node. The loss was `binary_crossentropy`, and we ran the model for 10 epochs. We then thresholded the data such that 0.5 and above was considered to be reasonable (or 1), with the rest of the results representing 0. After applying XNOR to the attained `yhat_test` and `y_test` values, we summed the total predictions that were correct and incorrect. To view the degree of accuracy for our model, we printed out a confusion matrix and classification report.
+The second model we employed was a Neural Net using Keras. First, we split the data into the training and testing sets with a ratio of 80:20. We then used `Sequential()` to initialize the NN. The overall input dimension was 5 and we added 4 layers: one with 16 units and a `relu` activation function, another with 8 units and a `tanh` function, another with 6 units and a `linear` function, and the last sigmoid layer with 1 node. The loss was `binary_crossentropy`, and we ran the model for 50 epochs. We then thresholded the data such that 0.5 and above was considered to be reasonable (or 1), with the rest of the results representing 0. After applying XNOR to the attained `yhat_test` and `y_test` values, we summed the total predictions that were correct and incorrect. To view the degree of accuracy for our model, we printed out a confusion matrix and classification report.
+
+# Results
+## First Model
+The testing accuracy of the Naive Bayes Classifier model was 68.0%. The training accuracy of the Naive Bayes Classifier model was 70.0%
+
+The full classification report is ![classification report](classification_naive_bayes.png)
+
+Using these [equations](#equations-used-for-comparing-error) on the training and testing set, we get the following results:
+Testing Set:
+- total positive = 31
+- total negative = 200 - 31 = 169
+
+- true positive = 16
+- false positive = 31 - 16 = 15
+
+- true negative = 120
+- false negative = 169 - 120 = 49
+
+Training Set
+- total positive = 113
+- total negative = 800 - 113 = 687
+
+- true positive = 65
+- false positive = 113 - 65 = 48
+
+- true negative = 493
+- false negative = 687 - 493 = 194
+
+The misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. 
+
+## Second Model
+The testing accuracy of the Neural Net model was 69.0%. The training accuracy of the Neural Net model was 68.0%.
+
+The full classification report is ![classification report](classification_neural.png)
+
+Using these [equations](#equations-used-for-comparing-error) on the training and testing set, we get the following results:
+Testing Set:
+- total positive = 62
+- total negative = 200 - 62 = 138
+
+- true positive = 27
+- false positive = 62 - 27 = 35
+
+- true negative = 110
+- false negative = 138 - 110 = 28
+
+Training Set
+- total positive = 305
+- total negative = 800 - 305 = 495
+
+- true positive = 160
+- false positive = 305 - 160 = 145
+
+- true negative = 386
+- false negative = 495 - 386 = 109
+
+The misprediction for our training set was 0.3175 and the misprediction for our testing set was 0.315.
 
 # Discussion
-
 ## Data Exploration
 We discovered that our dataset does not have any null data, so in our preprocessing, there is no need to drop any null data. 
 
@@ -108,33 +164,7 @@ We define ```passed``` to be if the student achieves a score higher than 75, whi
 We chose to use a Naive Bayes Classifier as our first model. Since our dataset contained both categorical and numerical attributes, we fit a Categorical Naive Bayes Classifier on the categorical attributes only. We then also fit a Gaussian Naive Bayes Classifier on the numerical attributes, but since the numerical attributes are the individual section scores that we directly used to obtain our target attribute, we expected this to be highly accurate - thus, we do our comparison of training and testing error primarily using the Categorical Naive Bayes Classifier.
 
 ### Comparing Training vs Testing Error for First Model
-We printed classification reports for both the training and testing sets to compare the error for each. From the reports, we concluded that the overall precision and recall for determining whether the individual passed or failed was relatively the same for the testing and training data, with the results for the training data being slightly higher.
-
-Running our model, we get the following values:
-
-Testing Set:
-- total positive = 31
-- total negative = 200 - 31 = 169
-
-- true positive = 16
-- false positive = 31 - 16 = 15
-
-- true negative = 120
-- false negative = 169 - 120 = 49
-
-Training Set
-- total positive = 113
-- total negative = 800 - 113 = 687
-
-- true positive = 65
-- false positive = 113 - 65 = 48
-
-- true negative = 493
-- false negative = 687 - 493 = 194
-
-Then, using the [equations](#equations-used-for-comparing-error) above, the misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. Since the predictive error is similar for both training and testing, according to the fitting graph, our model is likely underfitting or is close to a good fit, with higher predictive error and simple model complexity placing it to the [left of the ideal range for model complexity](#graph-showing-how-to-compare-training-and-testing-error-to-determine-overfittingunderfitting).
-
-[link to figure]
+The predictive error is higher for the testing set than the training set, since the misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. So according to the fitting graph, our model is likely overfitting or is close to a good fit, and if near or on the [right of the ideal range for model complexity](#graph-showing-how-to-compare-training-and-testing-error-to-determine-overfittingunderfitting).
 
 ## Second Model
 To improve on our first model, we introduce Keras to define a Neural Network. Since none of the categorical attributes showed much correlation, we hoped that increasing the complexity with a neural net and adding layers would help define a more accurate model.
@@ -142,42 +172,16 @@ To improve on our first model, we introduce Keras to define a Neural Network. Si
 After testing we find the 4 layers separately with ```relu```, ```tanh```, ```linear``` and ```sigmoid``` as activation is expected to have highest accuracy.
 
 ### Comparing Training vs Testing Error for Second Model
-We generated the classification report for training and testing set to compare the error for each.
-By analyzing the report, we noticed that for the Neural Network we have a slightly higher accuracy 0.73 than the first model, and we concluded that the overall precision and recall for determining whether the individual passed or failed was relatively the same for the testing and training data, with the results for the training data being slightly higher.
-
-Running our model, we get the following values:
-
-Testing Set:
-- total positive = 15
-- total negative = 200 - 15 = 185
-
-- true positive = 8
-- false positive = 15 - 8 = 7
-
-- true negative = 138
-- false negative = 185 - 138 = 47
-
-Training Set
-- total positive = 101
-- total negative = 800 - 101 = 699
-
-- true positive = 58
-- false positive = 101 - 58 = 43
-
-- true negative = 488
-- false negative = 699 - 488 = 211
-
-Then, using the [equations](#equations-used-for-comparing-error) above, the misprediction for our training set was 0.3175 and the misprediction for our testing set was 0.27. Since the predictive error is similar for both training and testing, according to the fitting graph, our model is underfitting the data and is on the [left of the ideal range for model complexity](#graph-showing-how-to-compare-training-and-testing-error-to-determine-overfittingunderfitting).
+The predictive error of the training set is equal to the testing, with a training set misprediction of 0.3175 and a testing set misprediction of 0.315. So, according to the fitting graph, our model is underfitting the data and is on the [far left of the ideal range for model complexity](#graph-showing-how-to-compare-training-and-testing-error-to-determine-overfittingunderfitting).
 
 # Conclusion
 ## Summary of Results
-We created two models to try and predict whether the student "passed" or failed the standardized test. This metric was created by taking the average of all three scores used and seeing if it was over 75% (our passing value). If it was, the student "passed", else the student failed. The first model we used was a Naive Bayes Classifier with a test accuracy 68% and training accuracy of 70%.
-
-In the process of doing our first method and second method, the accuracy stayed always around 0.7, so a possible future direction is to explore if there’s any better model for our dataset, or add or change some of the hidden layers. 
-
+We created two models to try and predict whether the student "passed" or failed the standardized test. This metric was created by taking the average of all three scores used and seeing if it was over 75% (our passing value). If it was, the student "passed", else the student failed. 
 Since we used avg score instead of separate three scores, we only considered a single measure of success in standardized tests. So in future models, we would like to predict them separately and see if the attributes in our dataset may have different correlations with different scores as well.
 
-Overall, the two models performed well, with accuracies around 0.7, but the second model, using a Neural Net, performed better. One model that we'd like that we try in the future is clustering, which we think may reveal more similarities if we are not bounded by the given class labels.
+The first model we used was a Naive Bayes Classifier with a testing accuracy 68% and training accuracy of 70%. The second model we used was a Neural Net model with a testing accuracy of 69.0% and a training accuracy of 68.0%. Overall, while the two models performed well, with high accuracies, we concluded that the first model, our Naive Bayes Classifier, performed better. We concluded this because when identifying the model complexity for both models, we found that our first model was either a good fit or overfit, while our second model was underfit.
+
+One model that we'd like that we try in the future is clustering, which we think may reveal more similarities if we are not bounded by the given class labels.
 
 However, we noticed very little overall correlation in our model, so we cannot conclude that the parents' background, test preparation, and other factors affect a student's performance on high school standardized tests.
 
