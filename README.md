@@ -14,6 +14,11 @@ In this project, we would like to use this data to understand the influence of t
 
 Additionally, this will help us gain a better understanding as to why admissions officers argued standardized testing isn't a fair measure of admissions.
 
+## Table of Contents
+- Data Exploration and Preprocessing: [Project.ipynb](Project.ipynb)
+- First Model - Naive Bayes Classifier: [First Model](Model1.ipynb)
+- Second Model - Neural Net: [Second Model](Model2.ipynb)
+
 # Figures
 ## Equations used for comparing error
 - Precision = $\frac{TP}{TP + FP}$
@@ -28,7 +33,7 @@ Additionally, this will help us gain a better understanding as to why admissions
 ![comparing model complexity](model_complexity_graph.png)
 
 # Methods
-## Data Exploration
+## Data Exploration [notebook](Project.ipynb)
 ### Observing Data
 In this dataset, we have 1000 total observations. Running the `info()` command, we can see that our data has 1000 rows of non-null data for each column.
 
@@ -46,7 +51,7 @@ The column names of our data are:
 We then used ```seaborn``` display all of the attributes in a [pairplot](#pairplot-with-all-dataset-attributes), and calculated their correlation coefficients in a [heatmap](#heatmap-displaying-the-correlation-coefficients-of-all-dataset-attributes).
 
 
-## Preprocessing
+## Preprocessing [notebook](Project.ipynb)
 We preprocessed the data by changing categorical data to numerical or boolean values. For instance, in the case of gender - male was set to true and female to false. This was also done for the other attributes that contained qualitative data, such as lunch, test preparation courses, race/ethnicity, and parental level of education so that we could represent them as qualitative data. For race/ethnicity, we mapped the values by alphabetical order of groups, while for the parental level of education, we set the value from the lowest to the highest degree.
 
 Transforms completed:
@@ -79,14 +84,14 @@ Transforms completed:
 ### Target
 In standardized testing, the final score is reported as the average of the individual sections, thus, we created another column called ```avg score``` that averaged the math, reading, and writing section scores of each student. We then used this average score to define our target, ```passed```. We define pass to be if the student achieves a score higher than 75, which is approximately a letter grade of C.
 
-## First Model
+## First Model [notebook](Model1.ipynb)
 The first model we used was a Naive Bayes Classifier. We first split the data into two parts, the categorical attributes, and the numerical attributes (the test scores). We then scaled the numerical data using `MinMaxScaler()` and split up both parts separately into our training and testing sets with a ratio of 80:20, and average score as the y. We fit a Categorical Naive Bayes to the categorical test data and logged the accuracy, then a Gaussian Naive Bayes for the numerical test data. We then compared the testing and training errors using classification reports and calculations to determine the effectiveness of the models.
 
-## Second Model
+## Second Model [notebook](Model2.ipynb)
 The second model we employed was a Neural Net using Keras. First, we split the data into the training and testing sets with a ratio of 80:20. We then used `Sequential()` to initialize the NN. The overall input dimension was 5 and we added 4 layers: one with 16 units and a `relu` activation function, another with 8 units and a `tanh` function, another with 6 units and a `linear` function, and the last sigmoid layer with 1 node. The loss was `binary_crossentropy`, and we ran the model for 50 epochs. We then thresholded the data such that 0.5 and above was considered to be reasonable (or 1), with the rest of the results representing 0. After applying XNOR to the attained `yhat_test` and `y_test` values, we summed the total predictions that were correct and incorrect. To view the degree of accuracy for our model, we printed out a confusion matrix and classification report.
 
 # Results
-## First Model
+## First Model [notebook](Model1.ipynb)
 The testing accuracy of the Naive Bayes Classifier model was 68.0%. The training accuracy of the Naive Bayes Classifier model was 70.0%
 
 The full classification report is ![classification report](classification_naive_bayes.png)
@@ -114,7 +119,7 @@ Training Set
 
 The misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. 
 
-## Second Model
+## Second Model [notebook](Model2.ipynb)
 The testing accuracy of the Neural Net model was 69.0%. The training accuracy of the Neural Net model was 68.0%.
 
 The full classification report is ![classification report](classification_neural.png)
@@ -146,7 +151,7 @@ The misprediction for our training set was 0.3175 and the misprediction for our 
 The final model we picked was our First Model.
 
 # Discussion
-## Data Exploration
+## Data Exploration [notebook](Project.ipynb)
 We discovered that our dataset does not have any null data, so in our preprocessing, there is no need to drop any null data. 
 
 Since we wanted to see the effect of changing each of the categorical attributes on the scores, we also did not drop any columns in preprocessing.
@@ -156,20 +161,20 @@ Some of the initial trends we saw from the [pairplot](#pairplot-with-all-dataset
 - The scatter plots of test scores with the rest of the attributes show a very high level of clustering, but looking at the correlation coefficients, there appears to be no correlation between the attributes
 - There was no correlation between test prep, gender, race/ethnicity, parental level of education, lunch
 
-## Preprocessing
+## Preprocessing [notebook](Project.ipynb)
 Looking at the correlation values of the heatmap from our data exploration, the relationship between the categorical attributes is not as good as expected, and there were no specific attributes that show a high correlation, we concluded that any linear, polynomial or logistic regression model will not be a good fit. Thus, when creating our model, we plan to proceed with trying a classification model, an SVM, Neural Net, or unsupervised models to best represent our data.
 
 The last part of preprocessing was choosing a target to reflect what we wanted to predict from our model - which was the probability of test success. Thus, because standardized testing reports the final score as the average of the individual sections, we created another column called ```avg score``` that averaged the math, reading, and writing section scores of each student. We then used this average score to define another column ```passed``` to be our target column. 
 
 We define ```passed``` to be if the student achieves a score higher than 75, which is approximately a letter grade of C.
 
-## First Model
+## First Model [notebook](Model1.ipynb)
 We chose to use a Naive Bayes Classifier as our first model. Since our dataset contained both categorical and numerical attributes, we fit a Categorical Naive Bayes Classifier on the categorical attributes only. We then also fit a Gaussian Naive Bayes Classifier on the numerical attributes, but since the numerical attributes are the individual section scores that we directly used to obtain our target attribute, we expected this to be highly accurate - thus, we do our comparison of training and testing error primarily using the Categorical Naive Bayes Classifier.
 
 ### Comparing Training vs Testing Error for First Model
 The predictive error is higher for the testing set than the training set, since the misprediction for our training set was 0.3025 and the misprediction for our testing set was 0.32. So according to the fitting graph, our model is likely overfitting or is close to a good fit, and if near or on the [right of the ideal range for model complexity](#graph-showing-how-to-compare-training-and-testing-error-to-determine-overfittingunderfitting).
 
-## Second Model
+## Second Model [notebook](Model2.ipynb)
 To improve on our first model, we introduce Keras to define a Neural Network. Since none of the categorical attributes showed much correlation, we hoped that increasing the complexity with a neural net and adding layers would help define a more accurate model.
 
 After testing we find the 4 layers separately with ```relu```, ```tanh```, ```linear``` and ```sigmoid``` as activation is expected to have highest accuracy.
